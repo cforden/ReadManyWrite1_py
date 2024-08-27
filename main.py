@@ -2,6 +2,7 @@ import threading
 import StringReverse
 from WorkerThreads import reader_thread
 from WorkerThreads import writer_thread
+from StringReverseSyncd import GetMaxReaders
 
 def do_threads():
     t1 = threading.Thread(target=reader_thread, kwargs={"ID": 1})
@@ -29,4 +30,4 @@ if __name__ == "__main__":
     print()
     do_threads()
     print(f"Error count: {StringReverse.errorCount}")
-
+    print(f"maxReaders: {GetMaxReaders()}")

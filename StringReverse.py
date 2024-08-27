@@ -1,3 +1,5 @@
+# Raw (unsynchronized) read, and write operations for threading demo
+
 import threading
 import time
 
@@ -13,6 +15,8 @@ printLock = threading.Lock()
 
 def is_valid(string):
     decodedString = string.decode("utf-8")
+    # todo: change to char-by-char comparison
+    # to avoid Python's inherent thread-safety
     if decodedString == theForwardString:
         return True
     if decodedString == theBackwardString:
@@ -26,9 +30,7 @@ def is_valid(string):
         print(err_msg)
 
 def Read():
-    time.sleep(1e-7)
     is_valid(theString)
-    time.sleep(1e-7)
     return theString
 
 def Write():

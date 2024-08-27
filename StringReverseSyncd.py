@@ -19,7 +19,7 @@ def is_not_writing():
     return not isWriting
 
 def readers_all_finished():
-    return readersCount is 0
+    return readersCount == 0
 
 def Read():
     queue.appendleft(READ)
